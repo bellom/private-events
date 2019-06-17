@@ -15,11 +15,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    log_out
+    redirect_to login_path
   end
 
-  private 
-  # Logs in the given user.
-  def log_in(user)
-    session[:user_id] = user.id
-  end
 end
