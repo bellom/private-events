@@ -19,4 +19,5 @@ This is one of the Ruby on Rails projects recommended by [Microverse](https://ww
 2. `git checkout development`
 3. `bundle install`
 4. `rails db:migrate`
-5. `rails server`
+5. `rails db:reset`
+6. `rails server`
