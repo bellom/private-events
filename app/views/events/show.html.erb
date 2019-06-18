@@ -5,3 +5,10 @@
   <p><strong>Date</strong>: <%= @event.date %></p>
   <p><strong>Event Creator</strong>: <%= @event.creator.name %></p>
 </div>
+
+<h2> Attendees</h2>
+<div>
+    <% @attendees.each do |attendee| %>
+      <div> <%= attendee.name %> </div>
+    <%end%>
+</div>
