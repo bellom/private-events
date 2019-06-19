@@ -1,0 +1,11 @@
+<h1>EventAttendances#new</h1>
+
+<%= form_for @event_attendance do |event_attendance| %>
+  <%= event_attendance.label :attendee_id %>
+  <%= event_attendance.number_field :attendee_id %>
+  <br>
+  <%= event_attendance.label :eventAttended_id %>
+  <%= event_attendance.number_field :eventAttended_id %>
+  <br>
+  <%= event_attendance.submit "Create link" %>
+<% end %>

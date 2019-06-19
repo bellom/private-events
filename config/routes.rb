@@ -15,6 +15,6 @@ Rails.application.routes.draw do
   resources :users
 
   # Event Attendance
-  post '/attendance', to: 'event_attendance#create'
-  get '/attendance/new', to: 'event_attendance#new'
+  post '/event_attendances', to: 'event_attendances#create'
+  get '/attendance/new', to: 'event_attendances#new'
 end 
