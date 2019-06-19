@@ -1,11 +1,13 @@
 <h1>EventAttendances#new</h1>
 
-<%= form_for @event_attendance do |event_attendance| %>
-  <%= event_attendance.label :attendee_id %>
-  <%= event_attendance.number_field :attendee_id %>
+
+
+<%= form_tag event_attendances_path do %>
+  <%= label_tag :attendee_name%>
+  <%= text_field_tag :attendee_name %>
+
   <br>
-  <%= event_attendance.label :eventAttended_id %>
-  <%= event_attendance.number_field :eventAttended_id %>
-  <br>
-  <%= event_attendance.submit "Create link" %>
+  <%= label_tag :event_name, "Event Name"%>
+  <%= select_tag :event_id, options_from_collection_for_select(Event.all, "id", "name", 1) %>
+  <%= submit_tag "Create" %>
 <% end %>
