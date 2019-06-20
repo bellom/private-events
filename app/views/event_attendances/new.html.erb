@@ -1,0 +1,14 @@
+<h1>EventAttendances#new</h1>
+
+
+
+<%= form_tag event_attendances_path do %>
+  <%= label_tag :attendee_id %>
+  <%= select_tag :attendee_id, options_from_collection_for_select(User.all, "id", "name", 1) %>
+
+
+  <br>
+  <%= label_tag :eventAttended_id, "Event Name"%>
+  <%= select_tag :eventAttended_id, options_from_collection_for_select(Event.all, "id", "name", 1) %>
+  <%= submit_tag "Create" %>
+<% end %>
