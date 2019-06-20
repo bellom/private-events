@@ -1,15 +1,12 @@
 class EventAttendancesController < ApplicationController
+
+  before_action :attendance_check, only: [:create]
+
   def new
-    # @event_attendance = EventAttendance.new
-    # @event = Event.all
   end
 
   def create
-    user_name = params[:attendee_name]
-    user_id = User.where('name = ?', user_name)
-    p user_id
-    p params[:event_id]
-    @event_attendance = EventAttendance.create(attendee_id: user_id[0].id, eventAttended_id: params[:event_id].to_i)
+    @event_attendance = EventAttendance.create(attendance_params)
     if @event_attendance.save
       redirect_to events_path
     else
@@ -20,6 +17,14 @@ class EventAttendancesController < ApplicationController
 
   private
   def attendance_params
-    params.require(:event_attendance).permit(:attendee_id, :eventAttended_id)
+    params.permit(:attendee_id, :eventAttended_id)
   end
+
+  def attendance_check
+    if  !EventAttendance.where( attendee_id: params[:attendee_id], eventAttended_id: params[:eventAttended_id]).empty?
+      redirect_to attendance_new_path
+    end
+
+  end
+
 end
